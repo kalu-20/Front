@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="fondo.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=s, initial-scale=1.0" />
+    <link rel="stylesheet" href="plantilla.css" />
+    <title>TeamHub</title>
+  </head>
+  <body>
+    <section class="contenedor">
+      <div class="barra-logo">
+        <p class="logo">TeamHub</p>
+      </div>
+      <div class="contenido">
+        <div class="opciones">
+          <div class="opciones-items">
+            <button class="btn-servidor-creado" >
+                <svg>
+                <use href="./imagenes/symbol-defs.svg#icon-drive"></use>
+              </svg>
+              <p>Servidor creado</p>
+            </button>
+            <button class="btn-servidor" >
+                <svg>
+                <use href="./imagenes/symbol-defs.svg#icon-drive"></use>
+              </svg>
+              <p>Servidor escogido</p>
+            </button>
+            <button class="btn-mas">
+              <span class="mas-simbolo">+</span>
+            </button>
+            <button class="btn-brujula ">
+              <svg>
+              <use href="./imagenes/symbol-defs.svg#icon-compass2"></use>
+            </svg>
+          </button>
+          </div>
+          <button class="btn-usuario">
+            <svg class="icono">
+                <use href="./imagenes/symbol-defs.svg#icon-user"></use>
+            </svg>
+            luchi
+        </button>
+        
+        </div>
+        <div class="contenido-visible">
+          <p>
+          
+          </p>
+        </div>
+      </section>
+
+    <div class="modal" id="myModal" style="display: none;">
+      <div class="modal-container">
+          <div class="modal-content">
+              <h2>Crear un servidor</h2>
+              <div class="name-server">
+              <label for="serv">Nombre del Nuevo servidor</label>
+              <input type="text" id="serv" name="serv" class="input-server">
+              </div>
+              <div class="separacion">
+              <button class="btn-modal" id="modal-aceptar" >Confirmar</button>
+              <button id="modal-cancelar" class="btn-modal">Cancelar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+  <script src="scrip.js"></script>
+  
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="fondo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamHub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../ron/constantes/constantes.js"></script>
+</head>
+
+<body>
+  <div class="inicio">
+    <h1>Iniciar sesion</h1>
+    <form action="" method="post" class="formulario">
+      <label class="lbl" for="correo">Correo electrónico:</label>
+      <input class="input letra" type="email" id="email" name="correo" required />
+      <label class="lbl" for="contra">Contraseña:</label>
+      <input class="input letra" type="password" id="password" name="contra" required />
+    </form>
+    <button class="btn-enviar letra" onclick="sendForm()">Confirmar</button>
+    <a href="crearCuenta.html" class="decoration">¿No tienes una cuenta? <span
+        class="texto-destacado">Registrarse</span></a>
+  </div>
+</body>
+
+</html>
+<script>
+
+  function sendForm() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("Ingrese todos los datos");
+      return;
+    }
+
+    sendLogin(email, password);
+  }
+
+
+  async function sendLogin(email, password) {
+    const datos = {
+      "email": email,
+      "password": password
+    }
+
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    const infoPeticion = {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(datos)
+    };
+    const url = window.apiUrl + '/users/validate';
+
+    const res = await fetch(url, infoPeticion)
+      .then(res => {
+        if (!res.ok || res.status != 200) {
+          return new Error("Error en la solicitud: " + res.status);
+        }
+        return res.json();
+      })
+      .then(res => {
+        if ('user' in res) {
+          sessionStorage.setItem("userSession", JSON.stringify(res.user));
+          window.location.href = "principal.html";
+        } else {
+          alert("No se encontró ningun usuario");
+        }
+      })
+      .catch(err => console.error(err));
+  }
+</script>

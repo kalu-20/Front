@@ -1,0 +1,45 @@
+.inputs-grid{
+    display: grid;
+
+}
+
+.perfil-container{
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
+        row-gap: 2rem;
+    
+}
+
+.organize{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: end;
+    color: white;
+}
+
+.organize > input{
+    border-radius: 10px;
+}
+
+.organize > h4{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 20px;
+    margin: 0;
+}
+
+.display-perfil{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#profileimage{
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    border: 2px solid black;
+    margin: 1rem;
+}

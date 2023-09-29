@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="fondo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamHub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../ron/constantes/constantes.js"></script>
+</head>
+
+<body>
+  <div class="inicio-registro">
+    <h1>Crear Cuenta</h1>
+    <form action="" method="post" class="formulario-cuenta" id="registro-form">
+
+      <label class="lbl texto" for="correo">Correo electrónico:</label>
+      <input class="input-cuenta letra" type="email" id="correo" name="correo" required />
+
+      <label class="lbl texto" for="usuario">Nombre de usuario:</label>
+      <input class="input-cuenta letra" type="text" id="usuario" name="usuario" required />
+
+      <label class="lbl texto" for="nombre">Nombre:</label>
+      <input class="input-cuenta letra" type="text" id="nombre" name="nombre" required />
+
+      <label class="lbl texto" for="apellido">Apellido:</label>
+      <input class="input-cuenta letra" type="text" id="apellido" name="apellido" required />
+
+      <label class="lbl texto" for="contra">Contraseña:</label>
+      <input class="input-cuenta letra" type="password" id="contra" name="contra" required />
+
+      <p>Fecha de nacimiento</p>
+      <div class="fecha">
+        <select class="texto" id="dia" name="dia" required>
+          <option value="" disabled selected>Día ▼</option>
+        </select>
+        <select class="texto" id="mes" name="mes" required>
+          <option value="" disabled selected>Mes ▼</option>
+          <option value="1">Enero</option>
+          <option value="2">Febrero</option>
+          <option value="3">Marzo</option>
+          <option value="4">Abril</option>
+          <option value="5">Mayo</option>
+          <option value="6">Junio</option>
+          <option value="7">Julio</option>
+          <option value="8">Agosto</option>
+          <option value="9">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
+        </select>
+        <select class="texto" id="anio" name="anio" required>
+          <option value="" disabled selected>Año ▼</option>
+        </select>
+      </div>
+
+      <script>
+
+        const diaSelect = document.getElementById('dia');
+        const anioSelect = document.getElementById('anio');
+
+
+        for (let i = 1; i <= 31; i++) {
+          const option = document.createElement('option');
+          option.value = i;
+          option.textContent = i;
+          diaSelect.appendChild(option);
+        }
+
+
+        for (let i = 1980; i <= 2050; i++) {
+          const option = document.createElement('option');
+          option.value = i;
+          option.textContent = i;
+          anioSelect.appendChild(option);
+        }
+      </script>
+
+    </form>
+    <button class="btn-registrar letra texto" type="button" onclick="validarFormulario()">Confirmar</button>
+  </div>
+
+  <script>
+    async function validarFormulario() {
+      const correo = document.getElementById("correo").value;
+      const usuario = document.getElementById("usuario").value;
+      const nombre = document.getElementById("nombre").value;
+      const apellido = document.getElementById("apellido").value;
+      const contra = document.getElementById("contra").value;
+      const dia = document.getElementById("dia").value;
+      const mes = document.getElementById("mes").value;
+      const anio = document.getElementById("anio").value;
+
+      if (!correo || !usuario || !nombre || !apellido || !contra || !dia || !mes || !anio) {
+        alert("Por favor, complete todos los campos.");
+      } else {
+        const fechaNacimiento = `${anio}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+
+        const datos = {
+          "email": correo,
+          "user": usuario,
+          "first_name": nombre,
+          "last_name": apellido,
+          "password": contra,
+          "birth_date": fechaNacimiento
+        }
+
+        const headers = new Headers({
+          'Content-Type': 'application/json'
+        });
+
+        const infoPeticion = {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(datos)
+        };
+        const url = window.apiUrl + '/users';
+
+        const res = await fetch(url, infoPeticion)
+          .then(res => {
+            if (!res.ok) {
+              return new Error("Error en la solicitud: " + res.status);
+            }
+            return res.json();
+          })
+          .then(res => {
+            alert("Cuenta creada, será redireccionado al inicio");
+            window.location.href = "index.html";
+          })
+          .catch();
+      }
+    }
+  </script>
+</body>
+
+</html>

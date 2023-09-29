@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    color: rgb(174, 31, 171);
+    font-family: cursive;
+    font-size: 45px;
+}
+:root {
+    --fondo: #213341;
+    --formulario: #d2ca37;
+    --resaltado: #154483;
+  }
+body {
+    background-color:var(--fondo);
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
+    margin: 40px;
+}
+
+.inicio,.inicio-registro {
+    background-color: var(--formulario);
+    width: auto;
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.formulario,.formulario-cuenta{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 100px 40px 100px;
+}
+.letra{
+    color: black;
+    margin-bottom: 10px;
+}
+.btn-enviar,.btn-registrar{
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.lbl{
+    margin-bottom: 15px;
+}
+.input,.input-cuenta{
+    width: 800px;
+    height: 50px;
+    border: 4px solid black;
+}
+.texto-destacado {
+    color:  var(--resaltado)
+}
+.decoration{
+    text-decoration: none;
+}
+/*formulario de registro */
+.input-cuenta{
+    height: 25px;
+    width: 400px;
+    font-size: 15px;
+    font:900;
+}
+.btn-registrar{
+    width: 200px;
+    
+
+}
+
+.texto{
+    font-size: 20px;
+}
+.fecha select{
+    width: 100px;
+    color: black;
+    height:auto;
+    font-size: 15px;
+    font: bold;
+    border: 3px solid black;
+    appearance: none;
+    padding-left: 20px;
+}
+.fecha{
+    width: 100%;
+   
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-cuenta p{
+    margin-bottom: 5px;
+}
+.fecha select option{
+    color: black;
+    font-size: 15px;
+}
+
+form p{
+    font-size: 25px;
+}
+.inicio-registro h1{
+    font-size: 25px;
+}
+.active{
+    fill: aqua;
+}

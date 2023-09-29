@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="fondo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=s, initial-scale=1.0" />
+  <link rel="stylesheet" href="plantilla.css" />
+  <link rel="stylesheet" href="styles/principal.css" />
+  <script src="../ron/constantes/constantes.js"></script>
+  <title>TeamHub</title>
+</head>
+
+
+<body>
+  <main id="main">
+    <div class="navbar">
+      <button onclick="mostrarModal()" class="add-server"><img style="width: 30px;" src="imagenes/plus_icon.svg"
+          alt=""></button>
+      <button onclick="suscribirServidor()" class="add-server"><img style="width: 30px;" src="imagenes/search_icon.svg"
+          alt=""></button>
+      <div id="opciones-items"></div>
+      <button onclick="redirectPerfil()" id="btn-profile" class="btn-profile"></button>
+    </div>
+    <div id="channel-container" class="channel-container">
+      <div id="channels-list"></div>
+      <button onclick="mostrarChannelModal()">Añadir un Canal</button>
+    </div>
+    <div id="container-messages" class="container-messages">
+      <div id="messages"></div>
+      <div class="input-message">
+        <input style="height: 20px; display: none;" onkeydown="enterMensaje(event, this)" id="inputText" type="text"
+          placeholder="Enviar mensaje de texto">
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 100%;">
+
+      <input onkeydown="findServer(event, this)" style="display: none; margin: 1rem;" id="buscarServer" type="text" placeholder="buscarServer">
+      <div id="searchServer" class="searchServer" style="display: none;"></div>
+    </div>
+    
+  </main>
+</body>
+
+<div class="modal" id="myModal" style="display: none;">
+  <div class="modal-container">
+    <div class="modal-content">
+      <h2>Crear un servidor</h2>
+      <div class="name-server">
+        <label for="serv">Nombre del Nuevo servidor</label>
+        <input type="text" id="serv" name="serv" class="input-server">
+      </div>
+      <div class="separacion">
+        <button onclick="crearServidor()" class="btn-modal" id="modal-aceptar">Confirmar</button>
+        <button onclick="ocultarModal()" id="modal-cancelar" class="btn-modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="scripts/principal.js"></script>
+
+<div class="modal" id="modalChannel" style="display: none;">
+  <div class="modal-container">
+    <div class="modal-content">
+      <h2>Crear un canal</h2>
+      <div class="name-server">
+        <label for="serv">Nombre del Nuevo Canal</label>
+        <input type="text" id="newchannel" name="newchannel" class="input-server">
+      </div>
+      <div class="separacion">
+        <button onclick="crearCanal()" class="btn-modal" id="modal-aceptar">Confirmar</button>
+        <button onclick="ocultarChannelModal()" id="modal-cancelar" class="btn-modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalMsg" style="display: none;">
+  <div class="modal-container">
+    <div class="modal-content">
+      <h2>Modificar mensaje</h2>
+      <div class="name-server">
+        <label for="serv">Modifica el mensaje enviado</label>
+        <input type="text" id="modifyMsg" name="newchannel" class="input-server">
+      </div>
+      <div class="separacion">
+        <button onclick="modificarMensaje()" class="btn-modal" id="modal-aceptar">Confirmar</button>
+        <button onclick="ocultarMsgModal()" id="modal-cancelar" class="btn-modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="scripts/principal.js"></script>
+
+</html>

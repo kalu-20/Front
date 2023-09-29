@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="fondo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plantilla.css">
+    <link rel="stylesheet" href="styles/perfil.css">
+    <script src="../ron/constantes/constantes.js"></script>
+    <script src="scripts/perfil.js"></script>
+</head>
+
+<body>
+    <header class="salir">
+        <p>Mi perfil</p>
+        <button onclick="principal()" class="btn-salir">x</button>
+    </header>
+    <div class="contenedor-perfil">
+        <div class="encabezado">
+            <img id="profileimage" src=".." alt="">
+            <h1 id="usernameheader"></h1>
+        </div>
+        <div class="display-perfil">
+            <div class="perfil-container">
+                <div class="organize">
+                    <input style="width: 100%; display: none;" placeholder="Ingrese su nuevo usuario" id="username" type="text">
+                    <h4 id="usernametitle">Usuario:<p id="usernametxt"></p></h4>
+                    <button onclick="showMdfInput('username')" class="editar">Editar</button>
+                </div>
+                <div class="organize">
+                    <input style="width: 100%; display: none;" placeholder="Ingrese su nuevo nombre" id="name" type="text">
+                    <h4 id="nametitle">Nombre:<p id="nametxt"></p></h4>
+                    <button onclick="showMdfInput('name')" class="editar">Editar</button>
+                </div>
+                <div class="organize">
+                    <input style="width: 100%; display: none;" placeholder="Ingrese su nuevo apellido" id="lastname" type="text">
+                    <h4 id="lastnametitle">Apellido:<p id="lastnametxt"></p></h4>
+                    <button onclick="showMdfInput('lastname')" class="editar">Editar</button>
+                </div>
+                <div class="organize">
+                    <input style="width: 100%; display: none;" placeholder="Ingrese su nuevo correo" id="email" type="text">
+                    <h4 id="organizetitle">Email:<p id="emailtxt"></p></h4>
+                    <button onclick="showMdfInput('email')" class="editar">Editar</button>
+                </div>
+                <div class="organize">
+                    <input style="width: 100%; display: none;" placeholder="Ingrese url a su imagen" id="imagen" type="text">
+                    <h4 id="imagentitle">Imagen:<p id="imagentxt"></p></h4>
+                    <button onclick="showMdfInput('imagen')" class="editar">Editar</button>
+                </div>
+            </div>
+            <button onclick="sendModifyPerfil()">Guardar</button>
+        </div>
+    </div>
+    <footer class="pie">
+        <hr>
+        <p>Contraseña</p>
+        <button onclick="changePass()" class="perfil-modal">Cambiar contraseña</button>
+    </footer>
+    <div class="modal" id="myModal" style="display: none;">
+        <div class=" modal-container">
+            <div class="modal-content">
+                <h2>Cambia contraseña</h2>
+
+                <label for="actual">Contraseña actual</label>
+                <input type="password" id="actual" name="actual">
+
+                <label for="Nueva">Nueva contraseña</label>
+                <input type="password" id="nueva" name="Nueva">
+
+                <label for="confirma">Confirmar contraseña</label>
+                <input type="password" id="confirmar" name="confirma">
+            </div>
+            <div class="separacion">
+                <button onclick="sendChangePass()" class="btn-modal" id="modal-aceptar">Confirmar</button>
+                <button onclick="hideModal()" id="modal-cancelar" class="btn-modal">Cancelar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script src="scrip.js"></script>
+
+</html>
